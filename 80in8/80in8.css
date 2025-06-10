@@ -86,3 +86,19 @@ align-items: center;
 justify-content: center;
 clip-path: circle(75px at 50% 50%);
 }
+#questiondisplay{
+    margin-top: 60px;
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4,auto);
+    row-gap: 50px;
+    font-family: "Noto Sans", sans-serif;
+    
+}
+#questiondisplay div{
+    
+    background-color: hsl(99, 100%, 7%);
+    margin:0px 20px;
+    padding: 10px;
+    border-radius: 1em;
+    }

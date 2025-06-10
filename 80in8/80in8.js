@@ -43,19 +43,34 @@ function startGameTimer() {
         }
     }, 1000)
 }
-
-function endGame() {
+let colour
+let questiondisplay=document.getElementById("questiondisplay")
+     function endGame() {
     document.getElementById("options").innerHTML = "";
     questionEl.style.display="none" 
     heading.style.display="none"
     scoreDiv.innerHTML = `<h2>Time's Up!</h2>
         <p>Your score: ${score}/80</p>`
-        scoreDiv.style.position="fixed"
-        scoreDiv.style.top="50%"
+        questiondisplay.innerHTML="" 
+        questiondisplay.style.display = "grid" 
+         questions.forEach((thisquestion,index)=>{
+            
+                    if(thisquestion.selected === "") {
+                colour = "gray"; 
+            } else if (parseFloat(thisquestion.selected) === thisquestion.correctans) {
+                colour = "green";
+            } else {
+                colour = "red";
+            }
+        questiondisplay.innerHTML+=`<div style="border:1px solid ${colour}"><p>Question ${index+1}</p>
+                                        <p>${thisquestion.ques}</p></div>` 
+                                    })
+        scoreDiv.style.position="relative"
         scoreDiv.style.left="50%"
-        scoreDiv.style.transform="translate(-50%,-50%)"
-        scoreDiv.style.padding="50px"
-
+        scoreDiv.style.transform="translateX(-50%)"
+        scoreDiv.style.width="30%"
+        scoreDiv.style.textAlign="center"
+        scoreDiv.style.padding="20px"
 }
 let questions=[]
 let currentquestion=0
@@ -121,7 +136,8 @@ for(let j=options.length-1;j>0;j--){
 questions.push({
     ques:`${num1} ${operator} ${num2} = ?`,
     correctans:answer,
-    options:options
+    options:options,
+    selected:""
 })
 }
 console.log("Generated", questions.length, "questions")
@@ -154,11 +170,12 @@ function showquestion(){
 
 function submitanswer(selectedopt){
  const correctopt=questions[currentquestion].correctans
+ questions[currentquestion].selected = selectedopt;
  if(parseFloat(selectedopt)===correctopt){
     score++
- }else{
+     }else{
     score--
- }
+    }
 scoreDiv.style.display="block"
     
 scoreDiv.innerHTML=`<i class="fa-solid fa-star"></i> ${score}`
@@ -172,12 +189,27 @@ if(currentquestion<80){
      optionsDiv.style.display="none"
     scoreDiv.innerHTML = `<h2>Game Complete!</h2>
         <p>Your score: ${score}/80</p>`
-        scoreDiv.style.position="fixed"
-        scoreDiv.style.top="50%"
+        questiondisplay.innerHTML="" 
+        questiondisplay.style.display="grid"
+         questions.forEach((thisquestion,index)=>{
+            
+                    if(thisquestion.selected === "") {
+                colour = "gray"; 
+            } else if (parseFloat(thisquestion.selected) === thisquestion.correctans) {
+                colour = "green";
+            } else {
+                colour = "red";
+            }
+        questiondisplay.innerHTML+=`<div style="border:1px solid ${colour}"><p>Question ${index+1}</p>
+                                        <p>${thisquestion.ques}</p></div>` 
+                                    })
+        scoreDiv.style.position="relative"
         scoreDiv.style.left="50%"
-        scoreDiv.style.transform="translate(-50%,-50%)"
-        scoreDiv.style.padding="50px"
-       
+        scoreDiv.style.transform="translateX(-50%)"
+        scoreDiv.style.width="30%"
+        scoreDiv.style.textAlign="center"
+        scoreDiv.style.padding="20px"
+
        
 }
 }
