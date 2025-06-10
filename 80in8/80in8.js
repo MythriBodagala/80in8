@@ -54,7 +54,7 @@ function endGame() {
         scoreDiv.style.top="50%"
         scoreDiv.style.left="50%"
         scoreDiv.style.transform="translate(-50%,-50%)"
-
+        scoreDiv.style.padding="50px"
 
 }
 let questions=[]
@@ -169,6 +169,7 @@ if(currentquestion<80){
      clearInterval(gameTimer)
      questionEl.style.display="none" 
      heading.style.display="none"
+     optionsDiv.style.display="none"
     scoreDiv.innerHTML = `<h2>Game Complete!</h2>
         <p>Your score: ${score}/80</p>`
         scoreDiv.style.position="fixed"
@@ -208,10 +209,19 @@ countdownEl.textContent=countdown
 countdown--
 if(countdown<0){
     clearInterval(interval)
+    questionEl.style.display="block" 
+    optionsDiv.style.display="grid"
     heading.style.display="block"
     timerDiv.style.display="block"
     countdownEl.style.display = "none"
     backBtn.style.display="block"
+
+    scoreDiv.style.position=""
+        scoreDiv.style.top=""
+        scoreDiv.style.left=""
+        scoreDiv.style.transform=""
+        scoreDiv.style.padding=""
+      
     generatequestions()
     startGameTimer()
     showquestion()
