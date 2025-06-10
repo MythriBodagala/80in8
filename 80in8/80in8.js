@@ -214,6 +214,7 @@ if(currentquestion<80){
 }
 }
 function restartGame(){
+    questiondisplay.innerHTML="" 
      heading.style.display="none"
       countdownEl.style.display="flex"
     scoreDiv.style.display="none"
@@ -253,7 +254,7 @@ if(countdown<0){
         scoreDiv.style.left=""
         scoreDiv.style.transform=""
         scoreDiv.style.padding=""
-      
+        scoreDiv.style.width=""
     generatequestions()
     startGameTimer()
     showquestion()
