@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body{
+    padding: 30px;
+     color: aliceblue;
+     background-color: hsl(100, 100%, 9%);
+}
+#heading{
+    font-size: 1.5em;
+    font-family: "Noto Sans", sans-serif;
+    display: none;  
+    text-align: center;
+}
+#timer{
+    display: none;
+    position: fixed;
+    right:30px;
+    color: red;
+    padding: 5px 10px;
+    background-color: hsla(0, 0%, 7%);
+    border-radius: 5em;
+
+
+}
+#back-btn{
+    position: fixed;
+    right:100px;
+    top: 30px;
+    font-size: 1.05em;
+    margin-right: 30px;
+    border: none;
+    padding: 5px 10px;
+    color: rgb(181, 181, 181);
+    background-color: hsla(0, 0%, 7%);
+    border-radius: 5em;
+}
+#score{
+    position: fixed;
+    left:30px;top:30px;
+    color: gold;
+    padding: 5px 10px;
+   background-color: hsla(0, 0%, 7%);
+     border-radius: 5em;
+
+}
+#question{
+    
+    font-family: "Noto Sans", sans-serif;
+     text-align: center;
+    margin-top:40px ;
+    font-size: 2em;
+}
+#options{
+    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10% ;
+    justify-content: center;
+    }
+#options button{
+    width: 80px;
+    font-size:1.2em ;
+    border: none;
+    border-radius: 5px;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    background-color:rgb(228, 194, 0);
+    padding:10px 0px;
+}
+#countdown{
+    font-size: 3em;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    position: fixed;
+   transform:translate(-50%,-50%) ;
+     top: 50%;left:50%;
+     color: white;
+    background-color:hsla(0, 0%, 7%);
+    width:200px;height:200px;
+    display: flex;
+align-items: center;
+justify-content: center;
+clip-path: circle(75px at 50% 50%);
+}
